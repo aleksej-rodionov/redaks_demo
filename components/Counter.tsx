@@ -1,7 +1,7 @@
 import React from "react";
 import { Pressable, Text, View } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
-import { decrement, incrementAsync } from "../state/counter/counterSlice";
+import { decrement, increment, incrementAsync, incrementByAmount } from "../state/counter/counterSlice";
 import type { AppDispatch, RootState } from "../state/store";
 
 export default function Counter() {
@@ -14,7 +14,7 @@ export default function Counter() {
 
             <View style={{ flexDirection: "row", gap: 12 }}>
                 <Pressable
-                    onPress={() => dispatch(incrementAsync(4))}
+                    onPress={() => dispatch(increment())}
                     style={{
                         paddingVertical: 12,
                         paddingHorizontal: 18,
@@ -22,7 +22,7 @@ export default function Counter() {
                         borderRadius: 10,
                     }}
                 >
-                    <Text style={{ color: "white", fontSize: 16 }}>Increment</Text>
+                    <Text style={{ color: "white", fontSize: 16 }}>increment</Text>
                 </Pressable>
 
                 <Pressable
@@ -34,7 +34,33 @@ export default function Counter() {
                         borderRadius: 10,
                     }}
                 >
-                    <Text style={{ color: "white", fontSize: 16 }}>Decrement</Text>
+                    <Text style={{ color: "white", fontSize: 16 }}>decrement</Text>
+                </Pressable>
+            </View>
+
+            <View style={{ flexDirection: "row", gap: 12 }}>
+                <Pressable
+                    onPress={() => dispatch(incrementByAmount(4))}
+                    style={{
+                        paddingVertical: 12,
+                        paddingHorizontal: 18,
+                        backgroundColor: "#222",
+                        borderRadius: 10,
+                    }}
+                >
+                    <Text style={{ color: "white", fontSize: 16 }}>incrementByAmount(4)</Text>
+                </Pressable>
+
+                <Pressable
+                    onPress={() => dispatch(incrementAsync(8))}
+                    style={{
+                        paddingVertical: 12,
+                        paddingHorizontal: 18,
+                        backgroundColor: "#222",
+                        borderRadius: 10,
+                    }}
+                >
+                    <Text style={{ color: "white", fontSize: 16 }}>incrementAsync(8)</Text>
                 </Pressable>
             </View>
         </View>
