@@ -1,7 +1,7 @@
 import React from "react";
 import { Pressable, Text, View } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
-import { decrement, increment } from "../state/counter/counterSlice";
+import { decrement, incrementAsync } from "../state/counter/counterSlice";
 import type { AppDispatch, RootState } from "../state/store";
 
 export default function Counter() {
@@ -14,7 +14,7 @@ export default function Counter() {
 
             <View style={{ flexDirection: "row", gap: 12 }}>
                 <Pressable
-                    onPress={() => dispatch(increment())}
+                    onPress={() => dispatch(incrementAsync(4))}
                     style={{
                         paddingVertical: 12,
                         paddingHorizontal: 18,
